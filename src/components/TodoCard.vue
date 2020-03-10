@@ -54,6 +54,12 @@ export default {
       tarefas: []
     };
   },
+  created() {
+    let obj = localStorage.getItem("tarefas");
+    console.log(obj);
+    debugger
+    this.tarefas = JSON.parse(localStorage.getItem("tarefas"));
+  },
   computed: {
     hoje: function() {
       let novaData = new Date();
@@ -66,12 +72,17 @@ export default {
     adicionarTarefa(tarefa) {
       let nova_tarefa = { description: tarefa, checked: false };
       this.tarefas.push(nova_tarefa);
+      this.salvarListaTarefas();
     },
     checkTarefa(index) {
       this.tarefas[index]["checked"] = !this.tarefas[index]["checked"];
     },
-    removerTarefa(index){
-      this.tarefas.splice(index,1);
+    removerTarefa(index) {
+      this.tarefas.splice(index, 1);
+      this.salvarListaTarefas();
+    },
+    salvarListaTarefas() {
+      localStorage.setItem("tarefas", JSON.stringify(this.tarefas));
     }
   }
 };

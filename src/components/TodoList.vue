@@ -15,7 +15,7 @@
           <p
             class="control is-expanded"
             :class="{'checked': tarefa.checked}"
-          >{{tarefa.description}}></p>
+          >{{tarefa.description}}</p>
           <p class="control">
             <a class="button is-danger is-small" @click="remover(index)">
               <span class="icon is-small">
