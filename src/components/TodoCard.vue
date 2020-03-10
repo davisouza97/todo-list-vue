@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <header class="card-header">
-      <p class="card-header-title has-text-left">{{hoje}}</p>
+      <p class="card-header-title has-text-left"  >{{hoje}}</p>
       <div class="has-text-right">
         <p class="card-header-title">{{tarefas.length}} tarefas</p>
       </div>
@@ -55,9 +55,6 @@ export default {
     };
   },
   created() {
-    let obj = localStorage.getItem("tarefas");
-    console.log(obj);
-    debugger
     this.tarefas = JSON.parse(localStorage.getItem("tarefas"));
   },
   computed: {
